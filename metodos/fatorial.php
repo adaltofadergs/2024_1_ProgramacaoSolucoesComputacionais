@@ -3,6 +3,7 @@
 function calcularFatorial( $valor ){
     $fatorial = 1;
     for ($i = $valor; $i > 1; $i--){
+        // $fatorial = $fatorial + $i
         $fatorial *= $i;
     }
     return $fatorial;

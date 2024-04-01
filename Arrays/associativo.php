@@ -51,5 +51,3 @@ echo " de " . $y . ".";
 
 echo "<br>";
 
-setlocale(LC_ALL, 'pt_BR.utf8');
-	echo strftime('%d/%B/%G');
