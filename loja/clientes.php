@@ -1,7 +1,11 @@
-<?
-   include_once("model/clsCidade.php");
-   include_once("dao/clsCidadeDAO.php");
-   include_once("dao/clsConexao.php");
+<?php
+    include_once("dao/clsConexao.php");
+
+    include_once("model/clsCidade.php");
+    include_once("dao/clsCidadeDAO.php");
+   
+    include_once("model/clsCliente.php");
+    include_once("dao/clsClienteDAO.php");
 
 ?>
 
@@ -13,11 +17,14 @@
     <title>Loja - Clientes</title>
 </head>
 <body>
+
+    <?php require_once('menu.php'); ?>
+
     <h1>Clientes</h1>
 
     <form method="POST" action="controller/salvarCliente.php?inserir" >
         <label>Nome: </label>
-        <input type="text" placeholder="Digite o nome da cidade..." name="txtNome" />
+        <input type="text" placeholder="Digite o nome do cliente..." name="txtNome" />
         <br>
         <label>Data de Nascimento: </label>
         <input type="date" name="txtNascimento" />
@@ -34,12 +41,10 @@
                 foreach( $cidades as $cid ){
                     echo '<option value="'.$cid->id.'">'.$cid->nome.'</option>';
                 }
-
             ?>
-            <!-- <option value="1">Itati</option> -->
         </select>
         <br>
-
+        <br>
         <input type="submit" value="Salvar" />
         <input type="reset" value="Limpar" />
     </form>
@@ -48,70 +53,64 @@
 <?php
  
 
- /* *************************************
- ** A PARTIR DAQUI, NÃO FOI EDITADO AINDA 
-*/
 
 
-    $cidades = CidadeDAO::getCidades();
+    $clientes = ClienteDAO::getClientes();
 
-    if( count($cidades) == 0 ){
-        echo "<h1>Nenhuma cidade cadastrada!</h1>";
+
+    if( count($clientes) == 0 ){
+        echo "<h1>Nenhum cliente cadastrado!</h1>";
     }else{
+
+        
 ?>
     <table border="1">
         <tr>
             <th>Código</th>
             <th>Nome</th>
+            <th>Salário</th>
+            <th>Nascimento</th>
+            <th>Cidade</th>
             <th>Editar</th>
             <th>Excluir</th>
         </tr>
 
         <?php
 
-        foreach( $cidades as $cid ){
-            $id = $cid->id;
+        foreach( $clientes as $cli ){
+            $id = $cli->id;
             
             echo "  <tr>
                         <td>$id</td>
-                        <td>".$cid->nome."</td>
+                        <td>".$cli->nome."</td>
+                        <td>".$cli->salario."</td>
+                        <td>".$cli->nascimento ."</td>
+                        <td>".$cli->cidade->nome."</td>
                         <td><button>Editar</button></td>
-                        <td><a href='controller/salvarCidade.php?excluir&id=$id'>
+                        <td><a href='controller/salvarCliente.php?excluir&id=$id'>
                                 <button>Excluir</button></a></td>
                     </tr>";
         }
         
-                
-
-    
-       /*     if( isset($_REQUEST["nome"])){
-                $nome = $_REQUEST["nome"];
-                echo "  <tr>
-                            <td>3</td>
-                            <td>$nome</td>
-                            <td><button>Editar</button></td>
-                            <td><button>Excluir</button></td>
-                        </tr>";
-            }
-            */
+            
         ?>
     </table>
     
     <?php
 
-        }
+       }
 
         if( isset($_REQUEST["nomeVazio"])){
             echo "<script> alert('O campo nome não pode ser vazio!'); </script>";
         }
 
-        if( isset($_REQUEST["cidadeExcluida"])){
-            echo "<script> alert('Cidade excluída com sucesso!'); </script>";
+        if( isset($_REQUEST["clienteExcluido"])){
+            echo "<script> alert('Cliente excluído com sucesso!'); </script>";
         }
 
         if( isset($_REQUEST["nome"])){
             $nome = $_REQUEST["nome"];
-            echo "<script> alert('Cidade $nome cadastrada com sucesso!'); </script>";
+            echo "<script> alert('Cliente $nome cadastrado(a) com sucesso!'); </script>";
         }
     ?>
 

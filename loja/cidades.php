@@ -6,6 +6,9 @@
     <title>Loja - Cidades</title>
 </head>
 <body>
+
+    <?php require_once('menu.php'); ?>
+
     <h1>Cidades</h1>
 
     <form method="POST" action="controller/salvarCidade.php?inserir" >

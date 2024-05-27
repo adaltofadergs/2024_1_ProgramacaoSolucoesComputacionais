@@ -1,7 +1,7 @@
 <?php
 class Conexao{
     private static function abrir(){
-        $banco = "market" ;
+        $banco = "market_2024_1" ;
         $local = "localhost" ; // $local = "10.177.8.85";
         $user = "root" ;
         $senha = "";
