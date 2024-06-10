@@ -77,6 +77,9 @@ if( !isset($_SESSION["logado"]) || $_SESSION["logado"] == false ){
             */
         ?>
     </table>
+
+    <hr>
+    <a href="relatorioCidades.php" target="_blanck">Gerar Relatório</a>
     
     <?php
 
