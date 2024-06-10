@@ -7,5 +7,16 @@
 </head>
 <body>
 	<?php require_once('menu.php'); ?>
+
+
+	<h1 align="center" > Lojinha 2024/1</h1>
+
+	<img src="img/cesta.png"/>
+
+	<?php
+		if( isset($_REQUEST["usuarioInvalido"])){
+			echo "<script> alert('E-mail ou Senha incorretos!'); </script>";
+	    	}
+	?>
 </body>
 </html>

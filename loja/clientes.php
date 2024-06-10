@@ -1,4 +1,11 @@
 <?php
+
+session_start();
+
+if( !isset($_SESSION["logado"]) || $_SESSION["logado"] == false ){
+    header("Location: index.php");
+}else{
+
     include_once("dao/clsConexao.php");
 
     include_once("model/clsCidade.php");
@@ -116,3 +123,7 @@
 
 </body>
 </html>
+
+<?php
+
+    }

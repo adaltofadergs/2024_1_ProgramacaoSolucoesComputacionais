@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if( !isset($_SESSION["logado"]) || $_SESSION["logado"] == false ){
+    header("Location: index.php");
+}else{
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -89,3 +98,7 @@
 
 </body>
 </html>
+
+<?php
+
+    }

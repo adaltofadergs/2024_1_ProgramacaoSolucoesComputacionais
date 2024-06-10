@@ -6,7 +6,7 @@
     <title>Loja - Cidades</title>
 </head>
 <body>
-    <h1>Cidades</h1>
+    <h1>Cidades - Lojinha</h1>
 
     <form method="POST" action="controller/salvarCidade.php" >
         <label>Nome: </label>
@@ -16,7 +16,8 @@
         <input type="reset" value="Limpar" />
     </form>
     <hr>
-    
+    <br>
+
     <?php
         require_once('consulta.php');
 
