@@ -6,7 +6,11 @@
     <title>Loja - Cidades</title>
 </head>
 <body>
+
     <h1>Cidades - Lojinha</h1>
+
+    <hr>
+
 
     <form method="POST" action="controller/salvarCidade.php" >
         <label>Nome: </label>
